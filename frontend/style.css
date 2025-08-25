@@ -1,4 +1,6 @@
 /* --- Global Styles & Variables --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
     --primary-color: #007bff;
     --primary-hover-color: #0056b3;
@@ -678,7 +680,6 @@ body.dark-mode .chart-container {
    ============================================================================== */
 
 /* --- Google Font Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* --- CSS Variables for Theming --- */
 /* These variables define the entire color scheme and key layout properties.
