@@ -1,0 +1,6 @@
+{
+  "dataworkspace.excludedProjects": [
+    "SQLite/SQLite.sqlproj",
+    "SQLite/SQLite/SQLite.sqlproj"
+  ]
+}

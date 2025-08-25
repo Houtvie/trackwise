@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TrackWise</title>
+
+    <!-- Main stylesheet for base styles and variables -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Embedded CSS for login page-specific layout -->
+    <style>
+        .login-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--color-grey-light);
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 2.5rem;
+            background-color: var(--color-white);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-dark);
+        }
+
+        .login-subtitle {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--color-grey-dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(103, 58, 183, 0.2);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 0.9rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-white);
+            background-color: var(--color-primary);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-login:hover {
+            background-color: var(--color-primary-light);
+        }
+
+        #errorMessage {
+            color: var(--color-danger);
+            text-align: center;
+            min-height: 1.2em; /* Prevents layout shift */
+            margin-top: 1.5rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <h1 class="login-title">TrackWise Login</h1>
+        <p class="login-subtitle">Access your Admin Dashboard</p>
+
+        <form id="loginForm" action="dashboard.html">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Login</button>
+            
+            <p id="errorMessage"></p>
+        </form>
+    </div>
+
+    <!-- Theme script (checks localStorage on page load) -->
+    <script src="theme.js"></script>
+
+    <!-- Form submission script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            const errorMessage = document.getElementById('errorMessage');
+
+          // --- PASTE THIS NEW CODE BLOCK ---
+
+// 1. Add an event listener to the login form for the 'submit' event
+        /*loginForm.addEventListener('submit', function(event) {
+    // 2. Prevent the default form submission behavior (page reload)
+    event.preventDefault();
+
+    // 3. Clear any previous error messages
+    errorMessage.textContent = '';
+
+    // 4. Get the values from the username and password input fields
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // 5. Check if either field is empty
+    if (username.trim() === '' || password.trim() === '') {
+        errorMessage.textContent = 'Please fill in both fields.';
+        return; // Stop the function here
+    }
+
+    // 6. Check if both inputs are at least 8 characters long
+    if (username.length < 8 || password.length < 8) {
+        errorMessage.textContent = 'Username and password must be at least 8 characters long.';
+        return; // Stop the function here
+    }
+
+    // 7. If all checks pass, it's a "successful" dummy login.
+    //    Show a temporary success message and redirect to the dashboard.
+    console.log('Dummy login successful! Redirecting...');
+    loginButton.textContent = 'Logging in...';
+    
+    // Redirect to the dashboard page after a short delay
+    setTimeout(() => {
+        window.location.href = 'dashboard.html';
+    }, 1000); // 1 second delay
+});*/
+        })    
+</script>
+</body>
+</html>

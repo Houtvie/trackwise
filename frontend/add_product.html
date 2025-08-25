@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Product - TrackWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Add New Product</h1>
+            <p>Enter the details below to add a new item to the inventory.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-wrapper">
+            <a href="dashboard.html" class="back-link">&lt; Back to Dashboard</a>
+            
+            <div class="form-container">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input type="text" id="productName" name="productName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="barcode">Barcode Number</label>
+                        <input type="text" id="barcode" name="barcode">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="supplier">Supplier</label>
+                        <select id="supplier" name="supplier">
+                            <option value="">-- Select a Supplier --</option>
+                            <option value="1">Supplier Alpha</option>
+                            <option value="2">Supplier Beta</option>
+                            <option value="3">Supplier Gamma</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="purchasePrice">Purchase Price</label>
+                            <input type="number" id="purchasePrice" name="purchasePrice" step="0.01" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="initialQuantity">Initial Quantity</label>
+                            <input type="number" id="initialQuantity" name="initialQuantity" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="salePrice">Sale Price</label>
+                            <input type="number" id="salePrice" name="salePrice" step="0.01" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reorderLevel">Reorder Level</label>
+                            <input type="number" id="reorderLevel" name="reorderLevel" min="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Product</button>
+                        <a href="dashboard.html" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+<!-- JAVASCRIPT FOR THEME TOGGLE -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeToggle = document.getElementById('theme-toggle-checkbox');
+        
+        // Function to apply the saved theme on page load
+        const applySavedTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            // If 'dark' is saved, apply the dark-mode class and check the toggle
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeToggle.checked = true;
+            } else {
+                // Otherwise, ensure dark mode is off and the toggle is unchecked
+                document.body.classList.remove('dark-mode');
+                themeToggle.checked = false;
+            }
+        };
+
+        // 1. Add a change event listener to the toggle switch
+        themeToggle.addEventListener('change', () => {
+            // 2. When clicked, add or remove the '.dark-mode' class on the <body>
+            if (themeToggle.checked) {
+                document.body.classList.add('dark-mode');
+                // 3. Save the user's preference in localStorage
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // 4. When the page first loads, apply the theme from localStorage
+        applySavedTheme();
+    });
+</script>
+</body>
+</html>

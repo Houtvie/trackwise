@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard - TrackWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>TrackWise Inventory System</h1>
+            <p>Welcome back, Manager!</p>
+            <!-- Theme Toggle Switch -->
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="theme-toggle-checkbox">
+        <input type="checkbox" id="theme-toggle-checkbox" />
+        <span class="slider round"></span>
+    </label>
+</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-grid">
+
+            <!-- Low Stock Alerts Card -->
+            <div class="card">
+                <h2>LOW STOCK ALERTS</h2>
+                <ul class="alert-list">
+                    <li>Product A - Only 5 units left!</li>
+                    <li>Product B - Only 2 units left!</li>
+                    <li>Product C - Out of stock!</li>
+                </ul>
+            </div>
+
+            <!-- Recent Sales Card -->
+            <div class="card">
+                <h2>RECENT SALES</h2>
+                <table class="sales-table">
+                    <thead>
+                        <tr>
+                            <th>Sale ID</th>
+                            <th>Product</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>Product A</td>
+                            <td>$199.99</td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>Product D</td>
+                            <td>$49.50</td>
+                        </tr>
+                        <tr>
+                            <td>103</td>
+                            <td>Product B</td>
+                            <td>$75.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Key Performance Metrics Card -->
+            <div class="card">
+                <h2>KEY PERFORMANCE METRICS</h2>
+                <div class="metrics-container">
+                    <div class="metric-item">
+                        <span class="metric-value">$12,450.75</span>
+                        <span class="metric-label">Total Revenue (Month)</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">320</span>
+                        <span class="metric-label">Items Sold (Month)</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">45</span>
+                        <span class="metric-label">New Customers</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Card -->
+            <div class="card">
+                <h2>QUICK ACTIONS</h2>
+                <div class="actions-container">
+                    <a href="add_product.html" class="action-btn">Add New Product</a>
+                    <a href="reports.html" class="action-btn">Generate Sales Report</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+<!-- JAVASCRIPT FOR THEME TOGGLE -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeToggle = document.getElementById('theme-toggle-checkbox');
+        
+        // Function to apply the saved theme on page load
+        const applySavedTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            // If 'dark' is saved, apply the dark-mode class and check the toggle
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeToggle.checked = true;
+            } else {
+                // Otherwise, ensure dark mode is off and the toggle is unchecked
+                document.body.classList.remove('dark-mode');
+                themeToggle.checked = false;
+            }
+        };
+
+        // 1. Add a change event listener to the toggle switch
+        themeToggle.addEventListener('change', () => {
+            // 2. When clicked, add or remove the '.dark-mode' class on the <body>
+            if (themeToggle.checked) {
+                document.body.classList.add('dark-mode');
+                // 3. Save the user's preference in localStorage
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // 4. When the page first loads, apply the theme from localStorage
+        applySavedTheme();
+    });
+</script>
+</body>
+</html>

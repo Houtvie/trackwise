@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Reports - TrackWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Sales Reports</h1>
+            <p>Analyze product performance and revenue.</p>
+
+            <!-- Theme Toggle Switch -->
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="theme-toggle-checkbox">
+                    <input type="checkbox" id="theme-toggle-checkbox" />
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-wrapper">
+            <a href="dashboard.html" class="back-link">&lt; Back to Dashboard</a>
+
+            <!-- Report Controls -->
+            <div class="report-controls">
+                <label for="timePeriod">Select Time Period:</label>
+                <select id="timePeriod" name="timePeriod">
+                    <option value="7">Last 7 Days</option>
+                    <option value="30" selected>Last 30 Days</option>
+                    <option value="90">Last 90 Days</option>
+                    <option value="365">Last Year</option>
+                </select>
+                <button class="btn btn-primary">Go</button>
+            </div>
+
+            <!-- Chart Card -->
+            <div class="card">
+                <h2>Sales Volume (Bar Chart)</h2>
+                <div class="chart-container">
+                    <p>Chart library would be rendered here.</p>
+                </div>
+            </div>
+
+            <!-- Data Table Card -->
+            <div class="card">
+                <h2>Top 10 Selling Products</h2>
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Product Name</th>
+                            <th>Items Sold</th>
+                            <th>Total Revenue ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Product A</td>
+                            <td>152</td>
+                            <td>30,384.88</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Product D</td>
+                            <td>128</td>
+                            <td>6,336.00</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Product B</td>
+                            <td>97</td>
+                            <td>7,275.00</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Product F</td>
+                            <td>85</td>
+                            <td>4,241.50</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Product C</td>
+                            <td>76</td>
+                            <td>22,724.00</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Product H</td>
+                            <td>68</td>
+                            <td>1,353.20</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Product E</td>
+                            <td>54</td>
+                            <td>9,714.60</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Product G</td>
+                            <td>49</td>
+                            <td>3,670.10</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Product J</td>
+                            <td>41</td>
+                            <td>1,225.90</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Product I</td>
+                            <td>35</td>
+                            <td>5,246.50</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    
+    <!-- JAVASCRIPT FOR THEME TOGGLE -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle-checkbox');
+            
+            const applySavedTheme = () => {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    themeToggle.checked = true;
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    themeToggle.checked = false;
+                }
+            };
+
+            themeToggle.addEventListener('change', () => {
+                if (themeToggle.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            applySavedTheme();
+        });
+    </script>
+
+</body>
+</html>
