@@ -692,10 +692,9 @@ body.dark-mode .chart-container {
     --color-white: #ffffff;
     --color-grey-light: #f5f5f5;      /* Main background color for content areas */
     --color-grey-dark: #8c909a;       /* For subtitles and helper text */
-    --color-text: #333333;           /* Default text color */
+    --color-text: #dddddd;;           /* Default text color */
     --color-success: #4caf50;        /* Green for success messages */
     --color-danger: #f44336;         /* Red for errors and alerts */
-
     /* Layout & Effects */
     --card-padding: 1.5rem;
     --card-border-radius: 8px;
@@ -722,87 +721,158 @@ body {
 }
 
 
-/* ==============================================================================
-   Login Page Specific Styles
-   ============================================================================== */
-.login-body {
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --accent-color: #8672FF;
+    --base-color: white;
+    --text-color: #2E2B41;
+    --input-color: #F3F0FF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: Poppins, Segoe UI, sans-serif;
+    font-size: 12pt;
+    color: var(--text-color);
+    text-align: center;
+}
+
+body {
+    min-height: 100vh;
+    background-image: ("frontend/ims.jpg");
+    background-size: cover;
+    background-position: right;
+    overflow: hidden;
+    background-image: url(ims.jpg);
+}
+
+.wrapper {
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--base-color);
+    height: 100vh;
+    width: max(40%, 600px);
+    padding: 10px;
+    border-radius: 0 20px 20px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+form {
+    width: min(400px, 100%);
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+form > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form label {
+    flex-shrink: 0;
+    height: 50px;
+    width: 50px;
+    background-color: var(--accent-color);
+    fill: var(--base-color);
+    color: var(--base-color);
+    border-radius: 10px 0 0 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-.login-container {
-    width: 100%;
-    max-width: 420px;
-    padding: 2.5rem;
-    background-color: var(--color-black);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-    border-top: 5px solid var(--color-primary); /* Adds a nice highlight */
-}
-
-.login-title {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--color-dark);
-}
-
-.login-subtitle {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    color: var(--color-grey-dark);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+form input {
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 1em;
+    font: inherit;
+    border-radius: 0 10px 10px 0;
+    border: 2px solid var(--input-color);
+    border-left: none;
+    background-color: var(--input-color);
+    transition: 150ms ease;
 }
-        
-.form-group input:focus {
+
+form input:hover {
+    border-color: var(--accent-color);
+}
+
+form input:focus {
     outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(49, 59, 199, 0.2);
+    border-color: var(--text-color);
 }
 
-.btn-login {
-    width: 100%;
-    padding: 0.9rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-white);
-    background-color: var(--color-primary);
+div.incorrect label {
+    background-color: #f06272;
+}
+
+div.incorrect input {
+    border-color: #f06272;
+}
+
+#error-message {
+    color: #f06272;
+}
+
+form button {
+    margin-top: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 100px;
+    padding: .85em 4em;
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    font: inherit;
+    font-weight: 600;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.2s;
-    margin-top: 1rem;
-}
-.btn-login:hover {
-    background-color: var(--color-primary-light);
+    transition: 150ms ease;
 }
 
-#errorMessage {
-    color: var(--color-danger);
-    text-align: center;
-    min-height: 1.2em; /* Prevents layout shifting when the message appears */
-    margin-top: 1.5rem;
-    font-weight: 500;
+form button:hover {
+    background-color: var(--text-color);
+}
+
+form button:focus {
+    outline: none;
+    background-color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1100px) {
+    .wrapper {
+        width: min(600px, 100%);
+        border-radius: 0;
+    }
 }
